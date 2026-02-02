@@ -16,8 +16,8 @@ void deleteAtHead(Node* &Head){
     if(Head==nullptr){
         return;
     }else if(Head->next==nullptr){
-        Head=Head->next;
         delete Head;
+        Head=nullptr;
     }else{
         Node* temp=Head;
         Head=Head->next;
@@ -25,15 +25,19 @@ void deleteAtHead(Node* &Head){
     }
 }
 
-void deleteAtTail(Node* &Tail){
-    if(Tail==nullptr){
+void deleteAtTail(Node* &Head){
+    if(Head==nullptr){
         return;
-    }else if(Tail->next==nullptr){
-        Tail=Tail->next;
-        delete Tail;
+    }else if(Head->next==nullptr){
+        delete Head;
+        Head=nullptr;
     }else{
-        Node* temp=Tail;
-        while(temp->next->next)
+        Node* temp=Head;
+        while(temp->next->next){
+            temp=temp->next;
+        }
+        delete temp->next;
+        temp->next=nullptr;
     }
 }
 

@@ -25,7 +25,7 @@ using namespace std;
 
 int main(){
     int num[]={3,4,9,2};
-    int target=6;
+    int target=12;
     int n=sizeof(num)/sizeof(num[0]);
 
     map<int, int> mp;
@@ -39,7 +39,6 @@ int main(){
 
         mp[num[i]]=i;
     }
-
 
     return 0;
 }
