@@ -7,11 +7,33 @@ int main(){
     string s1="listen";
     string s2="silent";
 
-    int n1=s1.length();
-    int n2=s2.length();
+    if(s1.length()!=s2.length()){
+        cout<<"Not an anagram";
+        return 0;
+    }
 
-    unordered_map<char, int> s;
-    
+    unordered_map<char, int> freq;
+    for(char ch: s1){
+        freq[ch]++;
+    }
 
-    return 0;
+    for(char ch: s2){
+        freq[ch]--;
+        if(freq[ch]<0){
+            cout<<"Not an anagram";
+            return 0;
+        }
+        
+    }
+
+    //final verification
+
+    for(auto it: freq){
+        if(it.second!=0){
+            cout<<"Not an anagram";
+            return 0;
+        }
+    }
+    cout<<" Sucessfully Anagram";
+
 }
