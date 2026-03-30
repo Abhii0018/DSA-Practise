@@ -1,16 +1,36 @@
 #include<iostream>
-#include<algorithm> // for use the sort function
 using namespace std;
-int main(){
-    int arr[]={2,1,0,2,1,0,0,1,2};
-    int len=sizeof(arr)/sizeof(arr[0]);
-    for(int i=0; i<len; i++){
-        sort(arr,arr+len);   //it takes first element and it goes to next to end element
-    }
 
-    for(int i=0; i<len; i++){
-        cout<<arr[i]<<" ";
+/**
+ * Optimized sorting of 0s, 1s, and 2s using the Dutch National Flag algorithm.
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ */
+void sort012(int arr[], int n) {
+    int low = 0, mid = 0, high = n - 1;
+    while (mid <= high) {
+        if (arr[mid] == 0) {
+            swap(arr[low], arr[mid]);
+            low++;
+            mid++;
+        } else if (arr[mid] == 1) {
+            mid++;
+        } else {
+            swap(arr[mid], arr[high]);
+            high--;
+        }
     }
-    cout<<endl;
+}
+
+int main() {
+    int arr[] = {2, 1, 0, 2, 1, 0, 0, 1, 2};
+    int len = sizeof(arr) / sizeof(arr[0]);
+    
+    sort012(arr, len);
+
+    for (int i = 0; i < len; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
