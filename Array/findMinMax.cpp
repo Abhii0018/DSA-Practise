@@ -36,19 +36,39 @@
 
 // now do it uisng minimum number of comparison
 
-#include <iostream>
-using namespace std;
-int main(){
-    int arr[]={8,5,9,1,2,4};
-    int len=6;
-    int max=INT_MIN;
+// #include <iostream>
+// using namespace std;
+// int main(){
+//     int arr[]={8,5,9,1,2,4};
+//     int len=6;
+//     int max=INT_MIN;
     
+//     for(int i=0; i<len; i++){
+//         if(arr[i]>max){
+//             max=arr[i];
+//         }
+//     }
+//     cout<<"Maximum number present in array: "<<max;
+
+//     return 0;
+// }
+
+
+
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int arr[]={2,6,9,3,5,1};
+    int len=sizeof(arr)/sizeof(arr[0]);
+    int max=INT_MIN;
     for(int i=0; i<len; i++){
-        if(arr[i]>max){
+        if (arr[i]>max){
             max=arr[i];
         }
     }
-    cout<<"Maximum number present in array: "<<max;
+     cout<<max<<" ";
 
     return 0;
 }
