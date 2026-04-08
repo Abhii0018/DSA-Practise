@@ -19,26 +19,55 @@
 
 // using map function  time complexity ->  o(n)
 
+// #include<iostream>
+// #include<map>
+// using namespace std;
+
+// int main(){
+//     int num[]={3,4,9,2};
+//     int target=12;
+//     int n=sizeof(num)/sizeof(num[0]);
+
+//     map<int, int> mp;
+//     for(int i=0; i<n; i++){
+//         int remaining=target-num[i];
+
+//         if(mp.find(remaining)!=mp.end()){
+//             cout<<mp[remaining]<<" "<<i;
+//             return 0;
+//         }
+
+//         mp[num[i]]=i;
+//     }
+
+//     return 0;
+// }
+
+
 #include<iostream>
 #include<map>
 using namespace std;
-
 int main(){
-    int num[]={3,4,9,2};
-    int target=12;
-    int n=sizeof(num)/sizeof(num[0]);
+    int arr[] = {2, 7, 11, 15};
+    int target =9;
 
-    map<int, int> mp;
-    for(int i=0; i<n; i++){
-        int remaining=target-num[i];
+// Output: [0, 1]
+int size=sizeof(arr)/sizeof(arr[0]);
 
-        if(mp.find(remaining)!=mp.end()){
-            cout<<mp[remaining]<<" "<<i;
-            return 0;
-        }
+map<int, int> mp;
+for(int i=0; i<size; i++){
+    int remain=target-arr[i];
 
-        mp[num[i]]=i;
+    if(mp.find(remain)!=mp.end()){
+        cout<<mp[remain]<<" "<<i;
+        return 0;
     }
+    //store current element with index
+    
+
+}
+
+
 
     return 0;
 }
